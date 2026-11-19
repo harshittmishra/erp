@@ -1,6 +1,6 @@
 <?php
 
-namespace App\services\auth;
+namespace App\auth;
 
 use Arbor\auth\authorization\ResourceInterface;
 use Arbor\auth\authorization\AuthEnumTrait;
