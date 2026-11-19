@@ -1,0 +1,21 @@
+-> problem : vague exception from Container:
+ex : Exception: Unsupported resolver type provided. Type: string in C:\xampp\htdocs\uc\arbor\arbor\src\container\Resolver.php:127
+sol : Container should output which file is not resolveable.
+
+-> problem : duplicacy for Scheme class in views and storage
+sol: create a seprate module "Scheme"
+
+
+-> manually wired modules through facade system.
+-> manually bundled modules.
+-> manually registered modules.
+
+
+Consumer-owned
+"I need this. Here is the contract I require."
+
+Provider-owned
+"I provide this. Here is the contract I promise."
+
+Shared
+"This capability is a fundamental concept of our architecture."

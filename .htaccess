@@ -1,0 +1,90 @@
+# ------------------------------------------------------------------------
+# Enable rewrite engine FIRST (critical)
+# ------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+</IfModule>
+
+# ------------------------------------------------------------------------
+# ModSecurity (best-effort safe handling for .htaccess)
+# NOTE: LocationMatch is unreliable in .htaccess, so we keep ModSecurity
+# enabled but avoid rewrite-based false positives via whitelist above.
+<IfModule mod_security.c>
+  SecRuleEngine On
+</IfModule>
+
+# ------------------------------------------------------------------------
+# Disable server signature
+# ------------------------------------------------------------------------
+ServerSignature Off
+
+# Prevent directory listing
+Options -Indexes -Includes -ExecCGI
+
+# ========================================================================
+# SSL / KEY PROTECTION
+# ========================================================================
+<IfModule mod_rewrite.c>
+
+  # --------------------------------------------------------------------
+  # HARD DENY: Block PHP execution everywhere EXCEPT front controller
+  # --------------------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !/public/index\.php$
+  RewriteRule \.(php|phar|phtml|php[0-9])$ - [F,L]
+
+  # Block SSL keys
+  RewriteRule ^SSLKeys/.*$ - [F,L]
+  RewriteRule \.(key|pem|crt|cer|p12|pfx|p7b|p7c|der|jks|keystore)$ - [F,L]
+
+  # ====================================================================
+  # STATIC CONTENT SECURITY
+  # ====================================================================
+  RewriteRule ^(statics|assets|uploads|images|css|js)/.*\.php$ - [F,L]
+
+  # ====================================================================
+  # DOT FILE PROTECTION
+  # ====================================================================
+  RewriteRule (^\.|/\.)(?!well-known) - [F]
+
+  # ====================================================================
+  # SENSITIVE FILE EXTENSIONS
+  # ====================================================================
+  RewriteRule \.(bak|config|sql|log|ini|env|gitignore|sample|dist|md|txt|sh|lock|xml|yml|yaml)$ - [F,L]
+
+  # ====================================================================
+  # PUBLIC DIRECTORY PROTECTION
+  # ====================================================================
+  RewriteCond %{REQUEST_URI} ^/public/.*\.php$
+  RewriteCond %{REQUEST_URI} !^/public/index\.php$
+  RewriteRule .* - [F,L]
+
+  # ====================================================================
+  # STATIC ASSET SHORT-CIRCUIT
+  # ====================================================================
+  RewriteCond %{REQUEST_URI} (^|/)(assets|statics|uploads)/.*\.(css|js|jpg|jpeg|png|gif|svg|webp|ico|woff|woff2|ttf|eot|json)$ [NC]
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule .* - [L]
+
+  # ====================================================================
+  # FRONT CONTROLLER
+  # ====================================================================
+  RewriteRule ^(.*)$ public/index.php [QSA,L]
+
+</IfModule>
+
+# ========================================================================
+# HTTP METHOD RESTRICTION
+# ========================================================================
+<LimitExcept GET POST PUT PATCH DELETE>
+  Require all denied
+</LimitExcept>
+
+# ========================================================================
+# SECURITY HEADERS
+# ========================================================================
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "no-referrer-when-downgrade"
+  Header always set X-XSS-Protection "1; mode=block"
+</IfModule>

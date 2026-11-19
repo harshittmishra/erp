@@ -1,0 +1,89 @@
+#topbar {
+  position: relative;
+  display: block;
+  min-height: 50px;
+  background-color: #f7f8fe;
+  margin-bottom: 5px;
+  padding: 0px 10px;
+  z-index: 10;
+}
+
+.profile_menu {
+  float: right;
+}
+
+.profile_menu .selected {
+  padding: 9px;
+  padding-right: 25px;
+}
+
+.profile_menu .avatar {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 5px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid #aab2d3;
+}
+
+.profile_menu .value {
+  padding-left: 47px;
+}
+
+.profile_menu .value h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.profile_menu .value p {
+  margin: 0;
+  font-size: 11px;
+}
+
+.sidebar_toggle {
+  position: relative;
+  top: 2px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  background-image: url("img/menu.png");
+  background-repeat: no-repeat;
+  background-size: 43%;
+  background-position: center;
+  display: none;
+  float: left;
+  border-radius: 5px;
+}
+
+.sidebar_toggle:hover {
+  background-color: #e5e8f6;
+}
+
+@media (max-width: 768px) {
+  .sidebar_toggle {
+    display: block;
+  }
+
+  .dropmenu.profile_menu .selected .value {
+    height: 30px;
+    padding: 0 16px;
+  }
+
+  .dropmenu .selected .value .text {
+    display: none;
+  }
+}
+
+#locationSelector .select {
+  float: left;
+  max-width: 220px;
+}
+
+#locationSelector .select .selected {
+  min-height: 48px;
+}

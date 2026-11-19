@@ -1,0 +1,289 @@
+#quick_access {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  background: #c5cce8;
+  z-index: 12;
+}
+
+#quick_access .inner {
+  position: relative;
+  display: block;
+}
+
+#quick_access .item {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 45px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+#quick_access .item:hover {
+  background: #afb9d2;
+}
+
+#quick_access .item.active {
+  background: #e2e7f6;
+}
+
+#quick_access .item .icon {
+  position: absolute;
+  top: calc(50% - 9px);
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#quick_access .section_title {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-left: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-bottom: 1px solid #9fa8c9;
+  padding-bottom: 6px;
+}
+
+#quick_access .section_title .icon {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#quick_access .item .tool_tip {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(100% - 8px);
+  width: max-content;
+  white-space: nowrap;
+  background: #fff;
+  padding: 3px 9px;
+  border-radius: 3px;
+  line-height: 1.2em;
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 3px 3px 5px #6d77a38a;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear 0.22s;
+  z-index: 2;
+  user-select: none;
+  pointer-events: none;
+}
+
+#quick_access .item:hover .tool_tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+  transition-delay: 1s;
+}
+
+#quick_access .item.active:hover .tool_tip {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-8px) scale(0.96);
+}
+
+#quick_access .item .menu {
+  position: fixed;
+  top: 0;
+  left: 50px;
+  bottom: 0;
+  width: 220px;
+  z-index: 1;
+  padding: 16px 0px;
+  background: #e2e5ee;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-12px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear 0.22s;
+  overflow: auto;
+}
+
+#quick_access .item.active .menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition-delay: 0s;
+}
+
+#quick_access .item .menu .option {
+  position: relative;
+  margin: 3px 0px;
+  padding: 7px 15px;
+}
+
+#quick_access .menu .list_item {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 10px 0px;
+  user-select: none;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#quick_access .menu.checkable .list_item {
+  padding-left: 36px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#quick_access .menu .list_item .check {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  background: #dedede;
+  border: 2px solid #7981a5;
+  border-radius: 3px;
+}
+
+#quick_access .menu .list_item.checked .check {
+  background: #a8b3e5;
+  border-color: #262f48;
+}
+
+#quick_access .menu .list_item .check::after {
+  content: "";
+  position: absolute;
+  top: 1.8px;
+  left: 1px;
+  display: none;
+  border: 2px solid #262f48;
+  width: 11px;
+  height: 5.5px;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+
+#quick_access .menu .list_item.checked .check::after {
+  display: block;
+}
+
+#quick_access .menu .list_item h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin: 0;
+}
+
+#quick_access .menu .list_item p {
+  font-size: 12px;
+  color: #616161;
+  margin: 0;
+  margin-top: 3px;
+}
+
+#quick_access .menu.tasks .list_item::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 36px;
+  width: calc(100% - 48px);
+  height: 1px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+#quick_access .menu.tasks .list_item.checked::after {
+  transform: scaleX(1);
+  opacity: 0.3;
+}
+
+#quick_access .menu .menu_title {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #9fa8c9;
+  padding: 15px 12px;
+  margin-bottom: 15px;
+}
+
+#quick_access .menu .menu_title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  display: inline-block;
+  width: auto;
+}
+
+#quick_access .menu .menu_title .shortcut {
+  position: absolute;
+  top: calc(50% - 7px);
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  background: url("img/right-arrow.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#quick_access .menu.notifications .list_item {
+  border-bottom: 1px solid #c9ccdd;
+  padding: 15px 12px;
+}
+
+#quick_access .menu.notifications .list_item.new {
+  background: #f4fbff;
+}
+
+#quick_access .item .counter {
+  position: absolute;
+  top: 0px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  background: #2196f3;
+  border-radius: 50%;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  color: #fff;
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+  #quick_access {
+    transform: translateX(-50px);
+    transition: all 0.1s ease-in;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #quick_access.active {
+    transform: translateX(0px);
+    visibility: visible;
+    opacity: 1;
+  }
+}

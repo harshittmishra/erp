@@ -1,0 +1,242 @@
+/* button */
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  cursor: pointer;
+  padding: 0 var(--space-5);
+  min-height: 40px;
+  background-color: var(--color-primary-300);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-primary-400);
+  font-size: 14px;
+  color: var(--color-primary-700);
+  box-shadow: var(--shadow-clickable);
+  transition:
+    transform var(--duration-normal) ease-out,
+    box-shadow var(--duration-normal) ease-out;
+}
+
+.button.secondary {
+  background-color: #e2e2e2;
+  color: #4c4141;
+  border: 1px solid #bebebe;
+}
+
+.button.btn-sm {
+  min-height: 36px;
+  font-size: 13px;
+}
+
+.button.btn-lg {
+  min-height: 50px;
+  font-size: 16px;
+}
+
+.button.block {
+  width: 100%;
+}
+
+/* .button states => hover, focus-visible, disabled, loading, success, error */
+
+.button:hover {
+  box-shadow: var(--shadow-clickable-hover);
+  transform: translateY(-2px);
+}
+
+.button:disabled {
+  background: var(--color-neutral-200);
+  border-color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.button:disabled:hover,
+.button.is-loading:hover,
+.button.is-success:hover {
+  box-shadow: var(--shadow-clickable);
+  transform: none;
+}
+
+.button.is-loading .icon,
+.button.has-error .icon,
+.button.is-success .icon {
+  display: none;
+}
+
+.button.is-loading {
+  cursor: wait;
+}
+
+.button.is-loading::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+
+  border: 2px solid var(--color-primary-800);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+
+  animation: rotate 0.7s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button.is-success::before {
+  border-radius: 0;
+  content: "";
+  position: relative;
+  top: -1px;
+  width: 6px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid var(--color-primary-800);
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  transform: rotate(45deg);
+  animation: tick var(--duration-crawl) cubic-bezier(0, 0.11, 0.36, 0.97) 1;
+}
+
+@keyframes tick {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+.button.has-error::before {
+  content: "";
+  width: 10px;
+  height: 12px;
+  flex: 0 0 auto;
+
+  background-image: url("../img/close16.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  animation: cross var(--duration-crawl) cubic-bezier(0, 0.11, 0.36, 0.97) 1;
+}
+
+@keyframes cross {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.button .icon {
+  width: 10px;
+  height: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+}
+
+.button.btn-sm .icon {
+  width: 10px;
+  height: 10px;
+}
+
+.button.btn-lg .icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* icon button */
+
+.icon-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: var(--radius-sm);
+  border: none;
+  transition: background-color var(--duration-normal) ease-out;
+}
+
+.icon-button .icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  transition: opacity var(--duration-normal) ease-out;
+}
+
+.icon-button.btn-sm {
+  width: 36px;
+  height: 36px;
+}
+
+.icon-button.btn-sm .icon {
+  top: calc(50% - 8px);
+  left: calc(50% - 8px);
+  width: 16px;
+  height: 16px;
+}
+
+.icon-button.btn-lg {
+  width: 50px;
+  height: 50px;
+}
+
+.icon-button.btn-lg .icon {
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+  width: 24px;
+  height: 24px;
+}
+
+.icon-button:hover {
+  background-color: var(--color-neutral-300);
+}
+
+.icon-button:hover .icon {
+  opacity: 1;
+}
+
+.icon-button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.icon-button:disabled {
+  background-color: var(--color-neutral-200);
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-600);
+  cursor: not-allowed;
+}
+
+.icon-button:disabled:hover {
+  box-shadow: none;
+  transform: none;
+}

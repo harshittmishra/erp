@@ -1,0 +1,98 @@
+.dashboard_selector {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.dashboard_selector .selected {
+  padding-left: 0;
+  padding-bottom: 0;
+  padding-top: 5px;
+}
+
+.dashboard_selector .selected .icon {
+  top: 20px;
+}
+
+.date_difference .input_group {
+  margin: 0;
+  margin-top: -5px;
+}
+
+#widgets {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+}
+
+#widgets .widget_wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.widget {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.widget .title_bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.widget .title_bar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.widget .title_bar h3 {
+  font-size: 16px;
+  font-weight: 500;
+  float: left;
+  margin: 0;
+}
+
+.widget .title_bar a {
+  float: right;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #756a87;
+  font-weight: 500;
+}
+
+.widget .description {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 8px;
+}
+
+.widget .description p {
+  font-size: 12px;
+  color: #6d6d6d;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.widget .value {
+  width: 50%;
+  position: relative;
+  display: block;
+  float: left;
+  margin-top: 7px;
+}
+
+.widget .value h4 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.widget .value h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+}

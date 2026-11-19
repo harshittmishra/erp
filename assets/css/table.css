@@ -1,0 +1,165 @@
+.tbl {
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.tbl thead th {
+  padding: 12px;
+  background: #f2f4fc;
+  color: #666;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tbl tbody td {
+  border-top: 1px solid #eee;
+  vertical-align: top;
+}
+
+.tbl-label {
+  padding: 8px 10px;
+  background: #f4f4f4;
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+  display: none;
+}
+
+.tbl-value {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.tbl-value .title {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+@media (min-width: 768px) {
+  .table_card {
+    background-color: #fff;
+    box-shadow: 1px 2px 5px -3px #00000061;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .table_card {
+    padding: 5px;
+  }
+
+  .tbl,
+  .tbl tbody,
+  .tbl tr,
+  .tbl td {
+    display: block;
+  }
+
+  .tbl thead {
+    display: none;
+  }
+
+  .tbl tr {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 8px -5px #0000006e;
+    background: #fff;
+  }
+
+  .tbl td {
+    padding: 0;
+    border: 0;
+  }
+
+  .tbl-cell {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+  }
+
+  .tbl-label {
+    display: grid;
+  }
+
+  .tbl-value {
+    word-break: initial;
+  }
+
+  .tbl.titledCards tr td:first-child .tbl-cell {
+    display: block;
+  }
+
+  .tbl.titledCards tr td:first-child .tbl-cell .tbl-label {
+    display: none;
+  }
+
+  .tbl.titledCards tr td:first-child .tbl-cell .tbl-value {
+    font-size: 15px;
+  }
+}
+
+.intro {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 60px;
+  padding-left: 65px;
+}
+
+.intro .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  border: 1px solid #ebebeb;
+}
+
+.intro .text .title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #272727;
+}
+
+.table_tags {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.table_tags .tag {
+  display: inline-block;
+  background: #efedf3;
+  padding: 1px 7px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  color: #555160;
+  border: 1px solid #e1dde8;
+  margin: 2px;
+}
+
+.tbl tbody tr {
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.tbl tbody tr:hover > td {
+  background: #f7f6f9;
+  border-top: 1px solid #d9d3e3;
+  border-bottom: 1px solid #d9d3e3;
+}

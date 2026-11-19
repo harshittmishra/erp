@@ -1,0 +1,3 @@
+<?php
+
+// ignorance is bliss;

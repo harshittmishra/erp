@@ -1,0 +1,28 @@
+{
+  "name": "woxa/erp",
+  "description": "erp based on arbor",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Harshit Mishra",
+      "email": "harshittmishra@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/unifiedcodes/arbor.git"
+    }
+  ],
+  "require": {
+    "unifiedcodes/arbor": "dev-main"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sys\\": "sys/",
+      "App\\": "app/"
+    }
+  }
+}

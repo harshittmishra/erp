@@ -1,0 +1,502 @@
+/* =========================================================
+   Custom Select
+========================================================= */
+
+.select {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  min-width: 150px;
+  max-width: 100%;
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--color-neutral-900);
+}
+
+/* =========================================================
+   Selected / Trigger
+========================================================= */
+
+.select .selected {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+
+  padding: 0 var(--space-3);
+
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+
+  color: var(--color-neutral-900);
+  background-color: var(--color-base);
+
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    border-color var(--duration-normal) ease-out,
+    box-shadow var(--duration-normal) ease-out,
+    background-color var(--duration-normal) ease-out;
+}
+
+/* Selected value */
+
+.select .selected > .option {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: inherit;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: inherit;
+}
+
+/* Hover */
+
+.select .selected:hover {
+  border-color: var(--color-accent-300);
+}
+
+/* Focus */
+
+.select .selected:focus,
+.select .selected:focus-visible {
+  border-color: var(--color-accent-400);
+
+  box-shadow:
+    0 0 0 4px var(--color-accent-100),
+    0 4px 14px var(--color-accent-100);
+
+  outline: 1px solid var(--color-accent-400);
+  outline-offset: 0;
+}
+
+/* Open state */
+
+.select .selected[aria-expanded="true"] {
+  border-color: var(--color-accent-400);
+
+  box-shadow: 0 0 0 3px var(--color-accent-100);
+}
+
+/* =========================================================
+   Caret
+========================================================= */
+
+.select .caret {
+  position: relative;
+  display: block;
+
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 auto;
+
+  border-right: 1.5px solid var(--color-neutral-700);
+  border-bottom: 1.5px solid var(--color-neutral-700);
+
+  transform: rotate(45deg);
+  transform-origin: center;
+
+  margin-top: -4px;
+
+  transition:
+    transform var(--duration-normal) ease-out,
+    border-color var(--duration-normal) ease-out;
+}
+
+.select .selected:hover .caret {
+  border-color: var(--color-accent-500);
+}
+
+.select .selected[aria-expanded="true"] .caret {
+  transform: rotate(225deg);
+  margin-top: 4px;
+  border-color: var(--color-accent-500);
+}
+
+/* =========================================================
+   Dropdown Menu
+========================================================= */
+
+.select .menu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: 0;
+
+  width: 100%;
+  min-width: 100%;
+
+  display: none;
+  flex-direction: column;
+
+  padding: var(--space-2);
+
+  background-color: var(--color-base);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-dropdown);
+
+  z-index: var(--z-dropdown);
+
+  overflow: hidden;
+
+  transform-origin: top center;
+}
+
+/* Open dropdown */
+
+.select .selected[aria-expanded="true"] + .menu {
+  display: flex;
+  animation: select-menu-in var(--duration-normal) var(--ease-standard);
+}
+
+@keyframes select-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Search
+========================================================= */
+
+.select .search {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
+
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.select .search-input {
+  position: relative;
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 36px;
+
+  padding: 0 var(--space-3);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-100);
+
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+
+  outline: none;
+
+  transition:
+    border-color var(--duration-normal) ease-out,
+    box-shadow var(--duration-normal) ease-out,
+    background-color var(--duration-normal) ease-out;
+}
+
+.select .search-input::placeholder {
+  color: var(--color-neutral-600);
+}
+
+.select .search-input:hover {
+  border-color: var(--color-accent-300);
+}
+
+.select .search-input:focus,
+.select .search-input:focus-visible {
+  background-color: var(--color-base);
+  border-color: var(--color-accent-400);
+
+  box-shadow: 0 0 0 3px var(--color-accent-100);
+
+  outline: none;
+}
+
+/* =========================================================
+   Options Container
+========================================================= */
+
+.select .options {
+  position: relative;
+  display: block;
+
+  width: 100%;
+  max-height: 220px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-400) transparent;
+}
+
+/* Webkit scrollbar */
+
+.select .options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.select .options::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.select .options::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-400);
+  border-radius: var(--radius-lg);
+}
+
+.select .options::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-500);
+}
+
+/* =========================================================
+   Individual Option
+========================================================= */
+
+.select .options .option {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 36px;
+
+  padding: var(--space-2) var(--space-3);
+
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+
+  color: var(--color-neutral-800);
+  background-color: transparent;
+
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    color var(--duration-fast) ease-out,
+    background-color var(--duration-fast) ease-out;
+}
+
+/* Hover */
+
+.select .options .option:hover {
+  color: var(--color-primary-700);
+  background-color: var(--color-primary-50);
+}
+
+/* Keyboard active / highlighted option */
+
+.select .options .option.is-active,
+.select .options .option:focus-visible {
+  color: var(--color-primary-700);
+  background-color: var(--color-primary-100);
+  outline: none;
+}
+
+/* Selected option */
+
+.select .options .option.is-selected,
+.select .options .option[aria-selected="true"] {
+  color: var(--color-primary-700);
+  background-color: var(--color-primary-100);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Selected option hover */
+
+.select .options .option.is-selected:hover,
+.select .options .option[aria-selected="true"]:hover {
+  background-color: var(--color-primary-200);
+}
+
+/* Disabled option */
+
+.select .options .option.is-disabled,
+.select .options .option[aria-disabled="true"] {
+  color: var(--color-neutral-500);
+  background-color: transparent;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =========================================================
+   Empty Search Result
+========================================================= */
+
+.select .options .no-results {
+  display: block;
+
+  padding: var(--space-4) var(--space-3);
+
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+
+  color: var(--color-neutral-600);
+  text-align: center;
+}
+
+/* =========================================================
+   Disabled Select
+========================================================= */
+
+.select.is-disabled .selected,
+.select .selected[aria-disabled="true"] {
+  color: var(--color-neutral-600);
+  background-color: var(--color-neutral-200);
+  border-color: var(--color-neutral-300);
+
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.select.is-disabled .caret,
+.select .selected[aria-disabled="true"] .caret {
+  border-color: var(--color-neutral-500);
+}
+
+.select.is-disabled .selected:hover,
+.select .selected[aria-disabled="true"]:hover {
+  border-color: var(--color-neutral-300);
+}
+
+/* =========================================================
+   Error State
+========================================================= */
+
+.select.is-invalid .selected {
+  border-color: var(--color-danger-500);
+}
+
+.select.is-invalid .selected:hover {
+  border-color: var(--color-danger-600);
+}
+
+.select.is-invalid .selected:focus,
+.select.is-invalid .selected:focus-visible,
+.select.is-invalid .selected[aria-expanded="true"] {
+  border-color: var(--color-danger-500);
+
+  box-shadow:
+    0 0 0 4px var(--color-danger-100),
+    0 4px 14px var(--color-danger-100);
+
+  outline-color: var(--color-danger-500);
+}
+
+/* =========================================================
+   Small Select
+========================================================= */
+
+.select.select-sm .selected {
+  min-height: 34px;
+  padding-inline: var(--space-2);
+  font-size: 13px;
+}
+
+.select.select-sm .options .option {
+  min-height: 32px;
+  padding: 6px var(--space-2);
+}
+
+/* =========================================================
+   Large Select
+========================================================= */
+
+.select.select-lg .selected {
+  min-height: 46px;
+  padding-inline: var(--space-4);
+  font-size: 15px;
+}
+
+.select.select-lg .options .option {
+  min-height: 40px;
+  padding: var(--space-2) var(--space-4);
+}
+
+/* =========================================================
+   Reduced Motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .select *,
+  .select *::before,
+  .select *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Selected option tick mark */
+
+.select .options .option[selected] {
+  position: relative;
+  padding-left: 32px;
+}
+
+.select .options .option[selected]::before {
+  content: "";
+  position: absolute;
+
+  left: 13px;
+  top: 50%;
+
+  width: 5px;
+  height: 9px;
+
+  border: solid var(--color-info-600);
+  border-width: 0 2px 2px 0;
+
+  transform: translateY(-60%) rotate(45deg);
+}
+
+.select .panel[data-state="closed"] {
+  display: none;
+}
+
+.select .panel {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-1);
+  background-color: var(--color-base);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-sm);
+  margin: 7px 0;
+}

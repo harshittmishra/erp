@@ -1,0 +1,188 @@
+#login {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+#login .inner {
+  position: absolute;
+  display: block;
+  width: 100%;
+}
+
+#login .login_form {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+#login .login_form .heading {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+#login .login_form .heading .logo {
+  position: relative;
+  display: block;
+  width: 110px;
+  height: 110px;
+  background-image: url("../img/rawls_salon_logo.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: invert(1) grayscale(1);
+}
+
+#login .login_form .heading .title {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+#login .login-carousel {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+#login .login-carousel .item .bg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#login .login-carousel .item .head {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+#login .login-carousel .item .head h3 {
+  font-size: 25px;
+  font-weight: 300;
+  color: #45424b;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+#login .login-carousel .item .head p {
+  font-size: 15px;
+  color: #808391;
+}
+
+.login-carousel .owl-dots {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.login-carousel .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.login-carousel .owl-dot span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  transition: all 0.25s ease;
+}
+
+.login-carousel .owl-dot:hover span {
+  background: #c6c6c6;
+}
+
+.login-carousel .owl-dot.active span {
+  width: 24px;
+  border-radius: 20px;
+  background: #8d8d8d;
+}
+
+.login_page {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+#get_started_button {
+  margin-top: 40px;
+  display: none;
+}
+
+.brand {
+  position: relative;
+  display: none;
+  width: 82px;
+  padding-left: 48px;
+  min-height: 32px;
+  padding-bottom: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.brand .logo {
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 10px;
+  background-image: url("../img/mind_logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.brand .name {
+  font-size: 22px;
+  font-weight: 500;
+  position: relative;
+  top: 3px;
+}
+
+@keyframes login_page_in {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .brand {
+    display: block;
+  }
+
+  #get_started_button {
+    display: block;
+  }
+
+  .login_page {
+    max-width: 100%;
+    align-items: center;
+    height: auto;
+    display: none;
+    flex-direction: column;
+    padding: 0px 10px;
+  }
+
+  .login_page.active {
+    display: flex;
+    animation: login_page_in 0.35s ease-out;
+  }
+}

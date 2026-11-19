@@ -1,0 +1,74 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bf9a55af1b959d9ab0b1e7823d97c666",
+    "packages": [
+        {
+            "name": "unifiedcodes/arbor",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unifiedcodes/arbor.git",
+                "reference": "fb2d749bb3f8921175be1426b4d4fd22b7d69481"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unifiedcodes/arbor/zipball/fb2d749bb3f8921175be1426b4d4fd22b7d69481",
+                "reference": "fb2d749bb3f8921175be1426b4d4fd22b7d69481",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arbor\\": "src/"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Harshit Mishra",
+                    "email": "info@unifiedcodes.com",
+                    "homepage": "https://unifiedcodes.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A modular PHP micro-framework for fast, modern application development.",
+            "homepage": "https://github.com/unifiedcodes/arbor",
+            "keywords": [
+                "arbor",
+                "dependency-injection",
+                "framework",
+                "micro-framework",
+                "modular",
+                "php",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/unifiedcodes/arbor/issues",
+                "source": "https://github.com/unifiedcodes/arbor",
+                "docs": "https://github.com/unifiedcodes/arbor/wiki"
+            },
+            "time": "2026-11-05T05:14:21+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "unifiedcodes/arbor": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}
