@@ -10,8 +10,7 @@ use App\auth\TokenStore;
 use Arbor\collections\Collect;
 use App\auth\guards\GuestGuard;
 use App\auth\guards\AuthNGuard;
-use Arbor\view\View;
-use Arbor\config\Config;
+use App\support\ModuleRegistrar;
 
 
 class AuthProvider extends ServiceProvider
@@ -28,15 +27,7 @@ class AuthProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $assets_url = Config::get('root.assets_url') . '/auth/';
-
-        Collect::add('import-map', ['@auth/' => $assets_url]);
-
-        View::registerScheme(
-            'auth',
-            __DIR__,
-            $assets_url
-        );
+        ModuleRegistrar::register('auth', __DIR__);
 
         // collection keys
         // guards

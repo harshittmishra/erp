@@ -1,4 +1,4 @@
-import Toggle from "@assets/toggle/Toggle.js";
+import Toggle from "assets/toggle/Toggle.js";
 
 export default class Sidebar {
   constructor() {

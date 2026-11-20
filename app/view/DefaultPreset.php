@@ -6,7 +6,6 @@ use Arbor\collections\Collect;
 use Arbor\view\presets\PresetInterface;
 use Arbor\view\Document;
 use Arbor\config\Config;
-use LogicException;
 
 
 class DefaultPreset implements PresetInterface
@@ -24,7 +23,7 @@ class DefaultPreset implements PresetInterface
 
 
         Collect::add('import-map', [
-            '@assets/' => Config::get('root.url') . 'assets/',
+            'assets/' => Config::get('root.url') . 'assets/',
         ]);
 
         $this->injectImportMap($doc);
@@ -49,26 +48,8 @@ class DefaultPreset implements PresetInterface
 
     protected function injectImportMap(Document $doc): void
     {
-        $imports = [];
-
-        foreach (Collect::get('import-map') as $contribution) {
-            foreach ($contribution as $specifier => $url) {
-                if (
-                    isset($imports[$specifier]) &&
-                    $imports[$specifier] !== $url
-                ) {
-                    throw new LogicException(
-                        sprintf(
-                            'Conflicting import-map entry: "%s".',
-                            $specifier
-                        )
-                    );
-                }
-
-                $imports[$specifier] = $url;
-            }
+        foreach (Collect::get('import-map') as $import) {
+            $doc->importMap($import);
         }
-
-        $doc->importMap($imports);
     }
 }

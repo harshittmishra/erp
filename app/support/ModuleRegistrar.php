@@ -13,7 +13,7 @@ class ModuleRegistrar
         $assets_url = Config::get('root.assets_url') . "/{$folder}/";
 
         Collect::add('import-map', [
-            "@{$folder}/" => $assets_url
+            "{$folder}/" => $assets_url
         ]);
 
         View::registerScheme(

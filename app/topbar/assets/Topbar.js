@@ -1,7 +1,7 @@
-import Api from "@assets/js/API.js";
-import Config from "@assets/js/Config.js";
-import Toggle from "@assets/toggle/Toggle.js";
-import Select from "@assets/select/Select.js";
+import Api from "assets/js/API.js";
+import Config from "assets/js/Config.js";
+import Toggle from "assets/toggle/Toggle.js";
+import Select from "assets/select/Select.js";
 
 export default class Topbar {
   constructor() {
@@ -40,7 +40,7 @@ export default class Topbar {
         { value: "head-office", label: "rawls head office" },
         { value: "ware-house", label: "rawls ware house" },
       ],
-      onChange: (data) => {},
+      onChange: (data) => { },
     });
 
     select.setSelected(["head-office"]);

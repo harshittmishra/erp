@@ -1,5 +1,5 @@
-import Api from "@assets/js/API.js";
-import Config from "@assets/js/Config.js";
+import Api from "assets/js/API.js";
+import Config from "assets/js/Config.js";
 
 function isPublicPath(path) {
   const pathname = path.split(/[?#]/, 1)[0];

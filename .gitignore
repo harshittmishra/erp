@@ -1,9 +1,6 @@
 # Private keys and sensitive files
 /keys/
 
-# Database credentials
-/configs/database.php
-
 # User uploaded files
 /uploads/
 

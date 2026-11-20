@@ -2,6 +2,7 @@
 
 namespace App\errors;
 
+use App\support\ModuleRegistrar;
 use Arbor\container\ServiceProvider;
 use Arbor\router\Route;
 use Arbor\http\Respond;
@@ -17,7 +18,7 @@ class ErrorsProvider extends ServiceProvider
 
     public function boot(): void
     {
-        View::registerScheme('errors', __DIR__ . '/views');
+        ModuleRegistrar::register('errors', __DIR__);
 
         Route::error()->any(404, static function () {
             return Respond::html(View::render('errors://not-found.php'));

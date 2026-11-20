@@ -1,4 +1,4 @@
-import DropUpload from "@assets/dropUpload/DropUpload.js";
+import DropUpload from "assets/dropUpload/DropUpload.js";
 
 export default class User {
   constructor() {
