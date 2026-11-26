@@ -1,4 +1,4 @@
-import Api from "assets/js/API.js";
+import Api from "assets/js/Api.js";
 import Form from "assets/js/Form.js";
 import Config from "assets/js/Config.js";
 import Notify from "assets/notify/Notify.js";

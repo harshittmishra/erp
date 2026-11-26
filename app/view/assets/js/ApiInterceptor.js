@@ -1,4 +1,4 @@
-import Api from "assets/js/API.js";
+import Api from "assets/js/Api.js";
 import Config from "assets/js/Config.js";
 
 function isPublicPath(path) {
