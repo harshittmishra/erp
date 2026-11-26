@@ -26,7 +26,7 @@ jobs:
 
           echo "172.232.104.21 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqMkqQ0j3VQwlGEd5zJuP+KeL5655+BIitOZA//FQ3Y" >> ~/.ssh/known_hosts
 
-      - name: Update ERP and install dependencies
+      - name: Sync ERP and install production dependencies
         env:
           LINODE_HOST: ${{ secrets.LINODE_HOST }}
         run: |
@@ -36,4 +36,4 @@ jobs:
             'cd /var/www/erp && \
              git fetch origin main && \
              git reset --hard origin/main && \
-             composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader'
+             COMPOSER=composer/composer.production.json composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader'
