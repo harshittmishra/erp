@@ -93,6 +93,7 @@ export default class Login {
       this.handleLoginSuccess();
 
     } catch (error) {
+
       this.handleLoginError(error);
 
     } finally {

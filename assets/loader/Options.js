@@ -4,7 +4,7 @@ export default class Options extends OptionsPipeline {
     constructor(options = {}, context) {
         super({
             mount: null,
-            duration: 1000,
+            autoHide: null,
             onShow: null,
             onHide: null,
             shouldDisable: false,
@@ -47,7 +47,12 @@ export default class Options extends OptionsPipeline {
         );
     }
 
-    duration(value) {
+    autoHide(value) {
+
+        if (value === null) {
+            return null;
+        }
+
         if (typeof value !== "number" || !Number.isFinite(value)) {
             throw new TypeError("duration must be a valid number.");
         }

@@ -79,15 +79,13 @@ export default class Loader {
     }
 
     startTimeout() {
-        // Clear any previously scheduled timeout.
         clearTimeout(this.timeout);
+        this.timeout = null;
 
-        if (this.options.duration > 0) {
-            // Automatically hide after the specified duration.
-
+        if (this.options.autoHide !== null) {
             this.timeout = setTimeout(() => {
                 this.hide();
-            }, this.options.duration);
+            }, this.options.autoHide);
         }
     }
 

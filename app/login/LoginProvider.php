@@ -35,5 +35,8 @@ class LoginProvider extends ServiceProvider
 
         Route::get('/logout', [LoginController::class, 'logout'])
             ->middlewares(Collect::get('authGuards'));
+
+        // login api
+        Collect::add('publicApi', '/login');
     }
 }

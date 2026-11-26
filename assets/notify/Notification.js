@@ -167,8 +167,6 @@ export default class Notification {
     } finally {
       this.startTimeout();
     }
-
-    this.startTimeout();
   }
 
   startTimeout() {

@@ -23,8 +23,8 @@ export default class Api {
       ...(isFormData
         ? {}
         : {
-            "Content-Type": "application/json",
-          }),
+          "Content-Type": "application/json",
+        }),
       ...(options.headers || {}),
     };
 
