@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unifiedcodes/arbor.git",
-                "reference": "1a113b29eacb398d00877157c30d7b22885f25ed"
+                "reference": "6eff22e1945d165d6d9abee83c60cfa92a65dbda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unifiedcodes/arbor/zipball/1a113b29eacb398d00877157c30d7b22885f25ed",
-                "reference": "1a113b29eacb398d00877157c30d7b22885f25ed",
+                "url": "https://api.github.com/repos/unifiedcodes/arbor/zipball/6eff22e1945d165d6d9abee83c60cfa92a65dbda",
+                "reference": "6eff22e1945d165d6d9abee83c60cfa92a65dbda",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "source": "https://github.com/unifiedcodes/arbor",
                 "docs": "https://github.com/unifiedcodes/arbor/wiki"
             },
-            "time": "2026-11-20T08:47:44+00:00"
+            "time": "2026-11-23T06:43:01+00:00"
         }
     ],
     "packages-dev": [],
