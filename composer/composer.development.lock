@@ -1,0 +1,70 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "00dea58a6e06da20ba7db7c6169b8b2c",
+    "packages": [
+        {
+            "name": "unifiedcodes/arbor",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "C:/xampp/htdocs/uc/arbor/arbor",
+                "reference": "1a113b29eacb398d00877157c30d7b22885f25ed"
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arbor\\": "src/"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Harshit Mishra",
+                    "email": "info@unifiedcodes.com",
+                    "homepage": "https://unifiedcodes.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A modular PHP framework",
+            "homepage": "https://github.com/unifiedcodes/arbor",
+            "keywords": [
+                "arbor",
+                "dependency-injection",
+                "framework",
+                "micro-framework",
+                "modular",
+                "php",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/unifiedcodes/arbor/issues",
+                "source": "https://github.com/unifiedcodes/arbor",
+                "docs": "https://github.com/unifiedcodes/arbor/wiki"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "unifiedcodes/arbor": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}

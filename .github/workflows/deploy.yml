@@ -20,16 +20,20 @@ jobs:
           LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh
+
           printf '%s\n' "$LINODE_SSH_KEY" > ~/.ssh/linode_deploy
           chmod 600 ~/.ssh/linode_deploy
 
           echo "172.232.104.21 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqMkqQ0j3VQwlGEd5zJuP+KeL5655+BIitOZA//FQ3Y" >> ~/.ssh/known_hosts
 
-      - name: Update ERP on Linode
+      - name: Update ERP and install dependencies
         env:
           LINODE_HOST: ${{ secrets.LINODE_HOST }}
         run: |
           ssh -i ~/.ssh/linode_deploy \
             -o IdentitiesOnly=yes \
             deploy@$LINODE_HOST \
-            "cd /var/www/erp && git pull origin main"
+            'cd /var/www/erp && \
+             git fetch origin main && \
+             git reset --hard origin/main && \
+             composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader'

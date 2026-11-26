@@ -1,17 +1,18 @@
 <?php
 
 use Arbor\config\Expr;
+use Arbor\jsonConfig\jsonConfig;
 
 
 return [
-    'is_debug' => true,
+    'is_debug' => jsonConfig::get('is_debug'),
 
     'dir' => realpath('../'),
 
-    'url_prefix' => Expr::val('erp/')
+    'url_prefix' => Expr::val(jsonConfig::get('url_prefix'))
         ->call("normalizeUrlSlashes"),
 
-    'url' => Expr::val('http://localhost/erp/')
+    'url' => Expr::val(jsonConfig::get('url'))
         ->call("normalizeUrlSlashes"),
 
     'statics_path' => '/statics',

@@ -15,7 +15,6 @@ use Arbor\config\Config;
 // Load Composer autoloader
 require_once '../vendor/autoload.php';
 
-
 // Bootstrap and configure the application
 $app = (new App())
     ->providers(ConfigProvider::class)
@@ -23,7 +22,7 @@ $app = (new App())
     ->providers(Config::get('appProviders'))
     ->boot();
 
-// include_once 'test.php';
+//include_once 'test.php';
 
 // handling http
 $app->get(ExecutionKernel::class)

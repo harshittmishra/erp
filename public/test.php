@@ -1,5 +1,10 @@
+<pre>
 <?php
 
-var_dump(getenv('DB_HOST'));
+use Arbor\config\Config;
+
+print_r(Config::get('database'));
+
+// echo JsonConfig::get('database.password');
 
 exit;

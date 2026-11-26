@@ -19,3 +19,9 @@ desktop.ini
 
 # Composer dependencies
 /vendor/
+
+# configuration files
+/env/
+
+# local notes
+.notes/

@@ -1,5 +1,7 @@
 <?php
 
+use Arbor\jsonConfig\jsonConfig;
+
 return [
 
     /**
@@ -21,10 +23,10 @@ return [
 
         'main' => [
             'driver'       => 'mysql',
-            'host'         => 'localhost',
-            'databaseName' => 'erp',
-            'username'     => 'root',
-            'password'     => '',
+            'host'         => jsonConfig::get('database.host'),
+            'databaseName' => jsonConfig::get('database.name'),
+            'username'     => jsonConfig::get('database.username'),
+            'password'     => jsonConfig::get('database.password'),
         ],
 
     ],
