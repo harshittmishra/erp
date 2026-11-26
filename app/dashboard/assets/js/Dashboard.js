@@ -1,4 +1,4 @@
-import Api from "assets/js/API.js";
+import Api from "assets/js/Api.js";
 import Calendar from "assets/calendar/Calendar.js";
 
 export default class Dashboard {
