@@ -35,7 +35,7 @@ class DefaultPreset implements PresetInterface
         $this->injectImportMap($doc);
         $this->injectConfig($doc);
 
-        $doc->initScript('view://assets/js/ApiInterceptor.js');
+        $doc->initScript('view://assets/js/ApiInterceptor.js', 'ApiInterceptor');
     }
 
     protected function injectConfig(Document $doc)

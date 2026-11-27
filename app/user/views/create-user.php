@@ -6,7 +6,7 @@ document()->style('css/button.css', [], 10);
 document()->style('css/inputs.css', [], 10);
 document()->style('dropUpload/dropUpload.css', [], 10);
 
-document()->initScript('user://assets/js/User.js');
+document()->initScript(filename: 'user://assets/js/User.js', name: 'User', priority: 1);
 
 View::startComponent('view://layouts/dashboard');
 

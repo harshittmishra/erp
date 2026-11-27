@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "C:/xampp/htdocs/uc/arbor/arbor",
-                "reference": "1a113b29eacb398d00877157c30d7b22885f25ed"
+                "reference": "6eff22e1945d165d6d9abee83c60cfa92a65dbda"
             },
             "require": {
                 "php": ">=8.1"
