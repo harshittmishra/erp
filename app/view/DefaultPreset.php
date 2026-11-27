@@ -12,6 +12,12 @@ class DefaultPreset implements PresetInterface
 {
     public function apply(Document $doc): void
     {
+        $doc->meta([
+            'name' => 'viewport',
+            'content' => 'width=device-width',
+            'intial-scale' => '1.0'
+        ]);
+
         $doc->style('css/base.css');
         $doc->style('css/reset.css');
         $doc->style('css/grid.css');
